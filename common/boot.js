@@ -27,6 +27,7 @@
   // Application path.
   var appName = location.pathname.match(/\/([-\w]+)(\.html)?$/);
   appName = appName ? appName[1].replace('-', '/') : 'index';
+  appName = 'maze';
 
   // Supported languages (consistent across all apps).
   window['BlocklyGamesLanguages'] = [

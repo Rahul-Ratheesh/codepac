@@ -29,7 +29,7 @@ if (goog.DEBUG) {
 
 
 Maze.soy.toolbox = function(opt_data, opt_ignored, opt_ijData) {
-  return '<xml id="toolbox" style="display: none;" xmlns="https://developers.google.com/blockly/xml"><block type="maze_moveForward"></block><block type="maze_turnLeft"></block><block type="maze_turnRight"></block><block type="maze_forever"></block><block type="maze_ifElse"></block></xml>';
+  return '<xml id="toolbox" style="display: none;" xmlns="https://developers.google.com/blockly/xml"><block type="maze_moveForward"></block><block type="maze_turnLeft"></block><block type="maze_turnRight"></block><block type="maze_repeat"></block><block type="maze_ifElse"></block></xml>';
 };
 if (goog.DEBUG) {
   Maze.soy.toolbox.soyTemplateName = 'Maze.soy.toolbox';

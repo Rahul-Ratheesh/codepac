@@ -1,10 +1,26 @@
+body {
+  background-color: #fff;
+}
+
 #blockly {
   position: fixed;
-  bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 #visualization {
   position: relative;
+  top: 10px;
+  width: 520px;
+  height: 88vh;
+  background-color: #1a1a1a;
 }
+
+#svgMaze {
+  position: relative;
+  top: 100px;
+  left: 25px;
+}
+
 #capacityBubble {
   position: absolute;
   margin-top: -0.5em;
@@ -12,6 +28,14 @@
   top: 375px;
   width: 380px;
 }
+
+button.primary {
+  position: absolute;
+  top: 85px;
+  left: 170px;
+  cursor: pointer;
+}
+
 html[dir="RTL"] #capacityBubble {
   left: auto;
   right: 10px;
@@ -142,4 +166,8 @@ html[dir="RTL"] #pegmanButton>span {
   height: 38px;
   width: 49px;
   background-position: -980px 0px;
+}
+
+.logo {
+  margin-top: 10px;
 }

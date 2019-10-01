@@ -1,17 +1,18 @@
 body {
   background-color: #fff;
+  overflow: hidden;
 }
 
 #blockly {
   position: fixed;
+  border: 8px solid #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #visualization {
   position: relative;
-  top: 10px;
   width: 520px;
-  height: 88vh;
+  height: 100vh;
   background-color: #1a1a1a;
 }
 
@@ -19,6 +20,17 @@ body {
   position: relative;
   top: 100px;
   left: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    overflow: auto;
+  }
+  #blockly {
+    position: relative;
+    width: 100vh;
+    height: 700px;
+  }
 }
 
 #capacityBubble {
@@ -31,7 +43,7 @@ body {
 
 button.primary {
   position: absolute;
-  top: 85px;
+  top: 40px;
   left: 170px;
   cursor: pointer;
 }
@@ -169,5 +181,7 @@ html[dir="RTL"] #pegmanButton>span {
 }
 
 .logo {
+  position: absolute;
   margin-top: 10px;
+  right: 10px;
 }

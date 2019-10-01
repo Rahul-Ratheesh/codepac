@@ -4,7 +4,7 @@
  * This is a Closure Template.
  *
  * To regenerate just English, run:
- *   make maze-en
+ *   make codepac-en
  *
  * To regenerate all languages, run:
  *   make languages
@@ -76,6 +76,9 @@
     </tr>
   </table>
 
+  <div id="header">
+    <img class="logo" src="common/logo_built_on.png" height="30px" />
+  </div>
   <div id="visualization">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgMaze" width="500px" height="540px">
       <g id="look">
@@ -97,7 +100,7 @@
           <img src="common/1x1.gif" class="run icon21"> {msg meaning="Games.runProgram" desc="IBID"}Run Program{/msg}
         </button>
         <button id="resetButton" class="primary" style="display: none" title="{msg meaning="Codepac.resetTooltip" desc="tooltip - Pressing this button restores the player to the start position and enables the user's program to be run again."}Put the player back at the start of the maze.{/msg}">
-          <img src="common/1x1.gif" class="stop icon21"> {msg meaning="Games.resetProgram" desc="IBID"}Reset{/msg}
+          <img src="common/1x1.gif" class="stop icon21"> {msg meaning="Games.resetProgram" desc="IBID"}Reset Pacman{/msg}
         </button>
       </td>
     </tr>
@@ -124,6 +127,5 @@
     <block type="maze_turnLeft"></block>
     <block type="maze_turnRight"></block>
     <block type="maze_repeat"></block>
-    <block type="maze_ifElse"></block>
   </xml>
 {/template}

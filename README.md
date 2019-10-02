@@ -1,2 +1,2 @@
 # codepac
- Hari Sri of Coding
+ Learn "Hari Sri" of Coding!

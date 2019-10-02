@@ -12,10 +12,11 @@ body {
 
 #svgMaze {
   position: relative;
-  top: 100px;
-  left: 5px;
+  margin-top: 100px;
+  margin-left: 5px;
   background-color: #1a1a1a;
   border: 10px solid #1a1a1a;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media only screen and (max-width: 600px) {
@@ -184,7 +185,15 @@ html[dir="RTL"] #pegmanButton>span {
 }
 
 .logo {
-  position: absolute;
-  margin-top: 10px;
-  right: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: right;
 }
+
+#footer {
+  height: 2.5rem;
+  padding: 20px;
+  text-align: center;
+}
+
+

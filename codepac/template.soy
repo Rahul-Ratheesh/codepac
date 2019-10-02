@@ -28,8 +28,9 @@
     <span id="Codepac_pathLeft">{msg meaning="Codepac.pathLeft" desc="[[Translating:Blockly#Drop-Down_Menus dropdown]] - Condensed form of 'if there is a path to the left', as in: 'if path to the left, turn left'."}if path to the left{/msg}</span>
     <span id="Codepac_pathRight">{msg meaning="Codepac.pathRight" desc="[[Translating:Blockly#Drop-Down_Menus dropdown]] - Condensed form of 'if there is a path to the right', as in: 'if path to the right, turn right'."}if path to the right{/msg}</span>
     <span id="Codepac_repeatUntil">{msg meaning="Codepac.repeatUntil" desc="block text - Imperative or infinitive of a verb to repeat the following commands.  The phrase is followed by the symbol denoting the end of the maze."}repeat until{/msg}</span>
-    <span id="Codepac_moveForwardTooltip">{msg meaning="Codepac.moveForwardTooltip" desc="tooltip - Moves the icon on the screen representing the player forward one square on the maze board."}Moves the player forward one space.{/msg}</span>
-    <span id="Codepac_turnTooltip">{msg meaning="Codepac.turnTooltip" desc="tooltip - Turns the icon on the screen representing the player 90 degrees counter-clockwise (left) or clockwise (right)."}Turns the player left or right by 90 degrees.{/msg}</span>
+    <span id="Codepac_moveForwardTooltip">{msg meaning="Codepac.moveForwardTooltip" desc="tooltip - Moves the icon on the screen representing the Pacman forward one square on the maze board."}Moves the Pacman forward one space.{/msg}</span>
+    <span id="Codepac_turnLeftTooltip">{msg meaning="Codepac.turnLeftTooltip" desc="tooltip - Turns the icon on the screen representing the Pacman 90 degrees counter-clockwise (left)"}Turns the Pacman left by 90 degrees.{/msg}</span>
+    <span id="Codepac_turnRightTooltip">{msg meaning="Codepac.turnRightTooltip" desc="tooltip - Turns the icon on the screen representing the Pacman 90 degrees clockwise (right)."}Turns the Pacman right by 90 degrees.{/msg}</span>
     <span id="Codepac_ifTooltip">{msg meaning="Codepac.ifTooltip" desc="tooltip - 'path' refers to a path through a maze."}If there is a path in the specified direction, then do some actions.{/msg}</span>
     <span id="Codepac_ifelseTooltip">{msg meaning="Codepac.ifelseTooltip" desc="tooltip - 'path' refers to a path through a maze."}If there is a path in the specified direction, then do the first block of actions. Otherwise, do the second block of actions.{/msg}</span>
     <span id="Codepac_whileTooltip">{msg meaning="Codepac.whileTooltip" desc="tooltip - Repeat the enclosed commands until the maze has been successfully completed (the end point reached)."}Repeat the enclosed actions until finish point is reached.{/msg}</span>
@@ -77,7 +78,8 @@
   </table>
 
   <div id="header">
-    <img class="logo" src="common/logo_built_on.png" height="30px" />
+    <img class="logo" src="common/logo_built_on.png" height="32px" />
+    <a href="https://github.com/Rahul-Ratheesh/codepac"><img class="logo" src="common/github.png" height="32px" /></a>
   </div>
   <div id="visualization">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgMaze" width="500px" height="540px">
@@ -96,10 +98,10 @@
     <tr>
       <td style="width: 190px; text-align: center; vertical-align: top;">
       <td>
-        <button id="runButton" class="primary" title="{msg meaning="Codepac.runTooltip" desc="tooltip - Pressing this button runs the computer program the user has written to move the player through the maze."}Makes the player do what the blocks say.{/msg}">
+        <button id="runButton" class="primary" title="{msg meaning="Codepac.runTooltip" desc="tooltip - Pressing this button runs the computer program the user has written to move the Pacman through the maze."}Makes the Pacman do what the blocks say.{/msg}">
           <img src="common/1x1.gif" class="run icon21"> {msg meaning="Games.runProgram" desc="IBID"}Run Program{/msg}
         </button>
-        <button id="resetButton" class="primary" style="display: none" title="{msg meaning="Codepac.resetTooltip" desc="tooltip - Pressing this button restores the player to the start position and enables the user's program to be run again."}Put the player back at the start of the maze.{/msg}">
+        <button id="resetButton" class="primary" style="display: none" title="{msg meaning="Codepac.resetTooltip" desc="tooltip - Pressing this button restores the Pacman to the start position and enables the user's program to be run again."}Put the Pacman back at the start of the maze.{/msg}">
           <img src="common/1x1.gif" class="stop icon21"> {msg meaning="Games.resetProgram" desc="IBID"}Reset Pacman{/msg}
         </button>
       </td>
@@ -110,12 +112,41 @@
   <div id="blockly"></div>
 
   <div id="pegmanMenu"></div>
+  <div id="footer"><p>Made by Rahul Ratheesh</p></div>
 
   {call BlocklyGames.soy.dialog /}
   {call BlocklyGames.soy.doneDialog /}
   {call BlocklyGames.soy.abortDialog /}
   {call BlocklyGames.soy.storageDialog /}
 
+  {if $ij.level == 1}
+    <div id="dialogHelpStack" class="dialogHiddenContent">
+      <table><tr><td>
+        <img src="common/help.png">
+      </td><td>&nbsp;</td><td>
+        {msg meaning="Maze.helpStack" desc="callout - The word words for 'stack' and 'blocks' should be the same as for stacking children's blocks. Use the imperative verb form appropriate for speaking to a child, gender unspecified.  If no gender-neutral singular/familiar form exists but a gender-neutral plural/formal form exists, use that instead.  Be sure to use the same translation of 'move forward' as above."}Stack 'move forward' blocks together to help me reach the goal.{/msg}
+      </td><td valign="top">
+        <img src="codepac/help_stack.png" class="mirrorImg" height=63 width=136>
+      </td></tr></table>
+    </div>
+    <div id="dialogHelpOneTopBlock" class="dialogHiddenContent">
+      <table><tr><td>
+        <img src="common/help.png">
+      </td><td>&nbsp;</td><td>
+        {msg meaning="Maze.helpOneTopBlock" desc="callout - This is displayed if a user attempts to run a program composed of multiple stacks of blocks, letting them know they need to create a single stack."}On this level, you need to stack together all of the blocks in the white workspace.{/msg}
+        <div id="sampleOneTopBlock" class="readonly"></div>
+      </td></tr></table>
+    </div>
+    <div id="dialogHelpRun" class="dialogHiddenContent">
+      <table><tr><td>
+        {msg meaning="Maze.helpRun" desc="callout - This is shown after the user has created a program on the first level."}Run your program to see what happens.{/msg}
+      </td><td rowspan=2>
+        <img src="common/help.png">
+      </td></tr><tr><td>
+        <div><img src="codepac/help_run.png" class="mirrorImg" height=27 width=141></div>
+      </td></tr></table>
+    </div>
+  {/if}
 {/template}
 
 /**
